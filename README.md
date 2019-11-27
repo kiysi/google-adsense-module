@@ -1,7 +1,9 @@
 # Google AdSense
+
 > Google AdSense integration for Nuxt.js. Advertisements will update whenever the page route changes
 
 ## Setup
+
 - Add `@nuxtjs/google-adsense` dependency using yarn or npm to your project
 - Add `@nuxtjs/google-adsense` to `modules` section of `nuxt.config.js`
 
@@ -9,10 +11,13 @@
 {
   modules: [
     // Simple usage
-    ['@nuxtjs/google-adsense', {
-      id: 'ca-pub-###########'
-    }]
- ]
+    [
+      "@nuxtjs/google-adsense",
+      {
+        id: "ca-pub-###########"
+      }
+    ]
+  ];
 }
 ```
 
@@ -33,18 +38,17 @@ Using top level options:
 The asynchronous ad code (`//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js`) is automatically
 added to the `<head>` section of your pages.
 
-
 ## Configuration options
 
-| Option | type |  description
-| -------- | ---- | -----------
-| `id` | String | Your Google Adsense Publihser client ID (i.e. `ca-pub-#########`). **Required** when not in test mode.
-| `pageLevelAds` | Boolean | Enable Adsense Page Level Ads. Default is `false`. Refer to the AdSense docs for details.
-| `tag` | String | AdSense component tag name. Defaults to `adsbygoogle`.
-| `includeQuery` | Boolean | When `false`, only `$route.path` is checked for changes. If set to `true` `$route.query` will also be taken into account. The default is `false`.
-| `analyticsUacct` | String | Google Analytics Account ID (if linking analytics with AdSense, i.e. `UA-#######-#`).
-| `analyticsDomainName` | String | Google Analytics Account Domain (if linking analytics with AdSense, i.e. `example.com`).
-| `test` | Boolean | Force AdSense into _test_ mode (see below).
+| Option                | type    | description                                                                                                                                       |
+| --------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `id`                  | String  | Your Google Adsense Publihser client ID (i.e. `ca-pub-#########`). **Required** when not in test mode.                                            |
+| `pageLevelAds`        | Boolean | Enable Adsense Page Level Ads. Default is `false`. Refer to the AdSense docs for details.                                                         |
+| `tag`                 | String  | AdSense component tag name. Defaults to `adsbygoogle`.                                                                                            |
+| `includeQuery`        | Boolean | When `false`, only `$route.path` is checked for changes. If set to `true` `$route.query` will also be taken into account. The default is `false`. |
+| `analyticsUacct`      | String  | Google Analytics Account ID (if linking analytics with AdSense, i.e. `UA-#######-#`).                                                             |
+| `analyticsDomainName` | String  | Google Analytics Account Domain (if linking analytics with AdSense, i.e. `example.com`).                                                          |
+| `test`                | Boolean | Force AdSense into _test_ mode (see below).                                                                                                       |
 
 ### Test mode
 
@@ -71,36 +75,38 @@ Use the `ad-slot` property to specify your google adsense ad slot value (specifi
 
 **Component props:**
 
-| prop | type | description
-| ---- | ---- | -----------
-| `ad-slot` | String | Google Adsense adslot. **This prop is required when not in test mode**. Refer to your AdSense account for ad-slot values.
-| `ad-format` | String | Defaults to `'auto'`. Refer to the adsense docs for other options
-| `ad-style` | Object | Styles to apply to the rendered `<ins>` element. Default: `{ display: 'block' }`. Refer to VueJS [style binding docs](https://vuejs.org/v2/guide/class-and-style.html#Object-Syntax-1) for the Object format.
-| `ad-layout` | String | Optional. Refer to the adsense docs
-| `ad-layout-key` | String | Optional. Refer to the adsense docs
-| `page-url` | String | Optional.  Set a reference page URL (of similar content) if the ad is on a page that requires authentication. When set, this prop must be a fully qualified URL (inclcuding protocol and hostname).
-| `include-query` | Boolean | Override global option `includeQuery` on a per ad basis. Ensure all ads on a page have the same setting.
-| `analytics-uacct` | String | Google Analytics Account ID (if linking analytics with AdSense, i.e. `UA-#######-#`). Defaults to the value specified in the plugin option `analyticsUacct`.
-| `analytics-domain-name` | String | Google Analytics Account domain (if linking analytics with AdSense, i.e. `example.com`). Defaults to the value specified in the plugin option `analyticsDomainName`.
-
+| prop                    | type    | description                                                                                                                                                                                                   |
+| ----------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ad-slot`               | String  | Google Adsense adslot. **This prop is required when not in test mode**. Refer to your AdSense account for ad-slot values.                                                                                     |
+| `ad-format`             | String  | Defaults to `'auto'`. Refer to the adsense docs for other options                                                                                                                                             |
+| `ad-style`              | Object  | Styles to apply to the rendered `<ins>` element. Default: `{ display: 'block' }`. Refer to VueJS [style binding docs](https://vuejs.org/v2/guide/class-and-style.html#Object-Syntax-1) for the Object format. |
+| `ad-layout`             | String  | Optional. Refer to the adsense docs                                                                                                                                                                           |
+| `ad-layout-key`         | String  | Optional. Refer to the adsense docs                                                                                                                                                                           |
+| `page-url`              | String  | Optional. Set a reference page URL (of similar content) if the ad is on a page that requires authentication. When set, this prop must be a fully qualified URL (inclcuding protocol and hostname).            |
+| `include-query`         | Boolean | Override global option `includeQuery` on a per ad basis. Ensure all ads on a page have the same setting.                                                                                                      |
+| `analytics-uacct`       | String  | Google Analytics Account ID (if linking analytics with AdSense, i.e. `UA-#######-#`). Defaults to the value specified in the plugin option `analyticsUacct`.                                                  |
+| `analytics-domain-name` | String  | Google Analytics Account domain (if linking analytics with AdSense, i.e. `example.com`). Defaults to the value specified in the plugin option `analyticsDomainName`.                                          |
+| `full-width-responsive` | Boolean | Defaults to `false`. Refer to the adsense docs for other options                                                                                                                                              |
 
 ## Automatic updating of Ads
+
 Whenever your route changes, any disaplayed ads will update, just as they would on normal
 page loads.
 
-
 ## Caveats:
+
 - **Note:** AdSense limits you to a maximum of three (3) ads per page.
 - **Caution:** Reloading of ads arbitrarily (with minimal page content changes) may result in
-the suspension of your AdSense account. _Refer to AdSense for full terms of use._
+  the suspension of your AdSense account. _Refer to AdSense for full terms of use._
 - Google needs to crawl each page where ads appear. Ensure your site SSR renders any page where
-ads apepar. Ads on un-crawlable pages will not be shown.
+  ads apepar. Ads on un-crawlable pages will not be shown.
 - When placing ads on pages that require authentication, set `page-url` on the `<adsbygoogle />` component to the URL of a page on your site that is publicly accessible, which would have similar/relevant content.
 
-
 ## Background
+
 This module uses a technique developed by the Angular team (with help from Google Adsense)
 to handle updating ads on progressive web applications:
+
 - https://github.com/leonardteo/google-ads-test-angularjs
 - https://groups.google.com/forum/#!topic/angular/eyVo4XU04uk
 
@@ -109,8 +115,8 @@ updated to a random value. For this reason, you cannot set the `data-ad-region` 
 on the `<adsbygoogle />` component.
 
 For test mode, the following blog was used as a reference:
-- https://www.thedev.blog/3087/test-adsense-ads-safely-without-violating-adsense-tos/
 
+- https://www.thedev.blog/3087/test-adsense-ads-safely-without-violating-adsense-tos/
 
 ## License
 
