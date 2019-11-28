@@ -86,7 +86,7 @@ Use the `ad-slot` property to specify your google adsense ad slot value (specifi
 | `include-query`         | Boolean | Override global option `includeQuery` on a per ad basis. Ensure all ads on a page have the same setting.                                                                                                      |
 | `analytics-uacct`       | String  | Google Analytics Account ID (if linking analytics with AdSense, i.e. `UA-#######-#`). Defaults to the value specified in the plugin option `analyticsUacct`.                                                  |
 | `analytics-domain-name` | String  | Google Analytics Account domain (if linking analytics with AdSense, i.e. `example.com`). Defaults to the value specified in the plugin option `analyticsDomainName`.                                          |
-| `full-width-responsive` | Boolean | Defaults to `false`. Refer to the adsense docs for other options                                                                                                                                              |
+| `full-width-responsive` | String  | Defaults to `'false'`. Refer to the adsense docs for other options                                                                                                                                            |
 
 ## Automatic updating of Ads
 
